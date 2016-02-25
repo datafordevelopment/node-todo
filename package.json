@@ -28,7 +28,7 @@
   },
   "private": true,
   "scripts": {
-    "debug": "SENTRY_DSN=https://b5186766025e44fdbc22c3ed1607045e:660268cea9244018926c2528db1c3d5c@app.getsentry.com/68368 HEROKU_RELEASE_VERSION=dev nodemon --exec babel-node ./src",
+    "debug": "MONGOLAB_URI=mongodb://localhost/test SENTRY_DSN=https://b5186766025e44fdbc22c3ed1607045e:660268cea9244018926c2528db1c3d5c@app.getsentry.com/68368 HEROKU_RELEASE_VERSION=dev nodemon --exec babel-node ./src",
     "lint": "eslint .",
     "postinstall": "rm -rf build && babel -d ./build ./src",
     "start": "node ./build"

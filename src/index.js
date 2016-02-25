@@ -16,7 +16,7 @@ process.on('uncaughtException', error => {
 
 const app = new Koa()
 
-mongoose.connect('mongodb://localhost/test')
+mongoose.connect(process.env.MONGOLAB_URI)
 routes.forEach(route => app.use(route))
 
 app.on('error', sentry.captureException)
