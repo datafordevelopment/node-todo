@@ -12,8 +12,8 @@ const sentry = new raven.Client(process.env.SENTRY_DSN, {
 
 sentry.patchGlobal()
 mongoose.connect(process.env.MONGOLAB_URI)
-routes.forEach(route => app.use(route))
-
 app.on('error', error => sentry.captureException(error))
 app.use(bodyParser())
+routes.forEach(route => app.use(route))
+
 app.listen(process.env.PORT || 3000)
