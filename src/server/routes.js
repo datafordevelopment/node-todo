@@ -3,6 +3,7 @@ import route from 'koa-route'
 
 export default [
   route.get('/',getTodos),
+  route.get('/favicon.ico', getFavicon),
   route.get('/:id',getTodo),
   route.post('/',addTodo),
 ]
@@ -12,6 +13,10 @@ async function addTodo() {
     created: new Date(),
     text: this.request.body.text,
   }).save()
+}
+
+async function getFavicon() {
+  this.body = 'favicon'
 }
 
 async function getTodo(ctx, id) {
