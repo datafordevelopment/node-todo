@@ -2,8 +2,9 @@ import Todo from './todo'
 import route from 'koa-route'
 
 export default [
-  route.get('',getTodos),
-  route.post('',addTodo),
+  route.get('/',getTodos),
+  route.get('/:id',getTodo),
+  route.post('/',addTodo),
 ]
 
 async function addTodo() {
@@ -11,6 +12,10 @@ async function addTodo() {
     created: new Date(),
     text: this.request.body.text,
   }).save()
+}
+
+async function getTodo(ctx, id) {
+  this.body = await Todo.where({ _id: id }).findOne()
 }
 
 async function getTodos() {
