@@ -10,7 +10,7 @@ export default [
 
 async function addTodo() {
   this.body = await new Todo({
-    created: new Date2(),
+    created: new Date(),
     text: this.request.body.text,
   }).save()
 }
