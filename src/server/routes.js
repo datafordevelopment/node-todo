@@ -2,7 +2,7 @@ import Todo from './todo'
 import route from 'koa-route'
 
 export default [
-  route.get('/',getTodos),
+  route.get('/', getTodos),
   route.get('/favicon.ico', getFavicon),
   route.get('/error', triggerError),
   route.get('/:id',getTodo),
