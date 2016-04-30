@@ -9,6 +9,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "koa": "^2.0.0-alpha.3",
     "koa-bodyparser": "^3.0.0",
+    "koa-compose": "^3.1.0",
     "koa-route": "^3.1.0",
     "mongoose": "^4.4.14",
     "raven": "^0.10.0",
@@ -30,7 +31,7 @@
   },
   "private": true,
   "scripts": {
-    "debug": "MONGOLAB_URI=localhost:27017 nodemon --exec babel-node --debug ./src --source-maps",
+    "debug": "MONGOLAB_URI=mongodb://localhost/test SENTRY_DSN=https://b5186766025e44fdbc22c3ed1607045e:660268cea9244018926c2528db1c3d5c@app.getsentry.com/68368 nodemon --exec babel-node ./src --source-maps",
     "heroku-postbuild": "rm -rf build && babel -d ./build ./src --source-maps",
     "lint": "eslint .",
     "start": "node ./build"
