@@ -1,4 +1,4 @@
-export default () => (async (ctx, next) => {
+export default () => async (ctx, next) => {
   if (ctx.accepts('html')) {
     ctx.body = `
       <!DOCTYPE html>
@@ -16,4 +16,4 @@ export default () => (async (ctx, next) => {
   else {
     await next()
   }
-})
+}

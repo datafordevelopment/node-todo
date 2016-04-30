@@ -9,11 +9,14 @@
     "node": true
   },
   "parser": "babel-eslint",
-  "plugins": ["react"],
+  "plugins": [
+    "babel",
+    "react"
+  ],
   "rules": {
     "array-bracket-spacing": [2, "never"],
-    "arrow-parens": [2, "as-needed"],
     "arrow-spacing": 2,
+    "babel/arrow-parens": [2, "as-needed"],
     "brace-style": [2, "stroustrup", { "allowSingleLine": true }],
     "comma-dangle": [2, "always-multiline"],
     "eol-last": 2,
