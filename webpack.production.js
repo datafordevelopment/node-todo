@@ -1,14 +1,23 @@
 import CompressionPlugin from 'compression-webpack-plugin'
-import shared from './webpack.config'
 import webpack from 'webpack'
 
 export default {
-  ...shared,
   devtool: 'source-map',
   entry: [
     'babel-polyfill',
     './client',
   ],
+  module: {
+    loaders: [{
+      include: /client/,
+      loaders: ['babel'],
+      test: /\.js$/,
+    },{
+      include: /client/,
+      loaders: ['style', 'css?modules'],
+      test: /\.css$/,
+    }],
+  },
   output: {
     filename: './build/client.js',
     sourceMapFilename: './build/client.js.map',
