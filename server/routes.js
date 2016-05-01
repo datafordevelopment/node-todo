@@ -2,15 +2,13 @@ import Todo from './todo'
 import compose from 'koa-compose'
 import route from 'koa-route'
 
-export default function() {
-  return compose([
-    route.get('/', getTodos),
-    route.get('/favicon.ico', getFavicon),
-    route.get('/error', triggerError),
-    route.get('/:id',getTodo),
-    route.post('/',addTodo),
-  ])
-}
+export default () => compose([
+  route.get('/todos', getTodos),
+  route.get('/favicon.ico', getFavicon),
+  route.get('/error', triggerError),
+  route.get('/todos/:id',getTodo),
+  route.post('/todos',addTodo),
+])
 
 async function addTodo() {
   this.body = await new Todo({
