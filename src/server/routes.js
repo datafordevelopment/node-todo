@@ -30,5 +30,5 @@ async function getTodos() {
 }
 
 async function triggerError() {
-  this.body = this.testar.notexisting
+  this.body = this.doesnot.exist
 }
