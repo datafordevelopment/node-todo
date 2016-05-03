@@ -39,7 +39,7 @@
     "build": "rm -rf build && npm run build-client && npm run build-server && npm run build-static",
     "build-client": "babel-node node_modules/webpack/bin/webpack --config webpack.production.js --bail",
     "build-server": "babel -d ./build ./server --source-maps",
-    "build-static": "cp ./server/index.html ./build",
+    "build-static": "cp ./client/index.html ./build",
     "debug": "nodemon --exec babel-node ./server --source-maps",
     "heroku-postbuild": "npm run build",
     "lint": "eslint .",
