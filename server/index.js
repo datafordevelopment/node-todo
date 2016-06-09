@@ -9,9 +9,15 @@ import serve from 'koa-static'
 process.on('uncaughtException', errorHandlers.process)
 mongoose.connect(process.env.MONGOLAB_URI)
 
-new Koa()
+const app = new Koa()
+
+app
   .on('error', errorHandlers.app)
   .use(serve(__dirname))
-  .use(bodyParser())
   .use(routes())
-  .listen(process.env.PORT || 3000)
+
+if (process.env.NODE_ENV != 'production') {
+  app.use(require('../webpack-middleware').default())
+}
+
+app.listen(process.env.PORT || 3000)
