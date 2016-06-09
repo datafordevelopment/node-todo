@@ -14,6 +14,7 @@ const app = new Koa()
 app
   .on('error', errorHandlers.app)
   .use(serve(__dirname))
+  .use(bodyParser())
   .use(routes())
 
 if (process.env.NODE_ENV != 'production') {
